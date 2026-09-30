@@ -1,0 +1,10 @@
+{{define "error"}}
+{{template "header" .}}
+<section class="flex min-h-screen items-center justify-center">
+	<div class="max-w-xl text-center">
+		<p class="text-9xl text-primary">{{.Code}}</p>
+		<p class="m-4 text-muted-foreground">{{.Message}}</p>
+	</div>
+</section>
+{{template "footer" .}}
+{{end}}

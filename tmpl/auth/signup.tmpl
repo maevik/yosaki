@@ -1,0 +1,30 @@
+{{define "signup"}}
+{{template "header" .}}
+<section class="grid min-h-screen place-items-center p-6">
+	<div class="w-full max-w-md rounded-sm border bg-card p-8">
+		<h1 class="text-center text-2xl font-bold">Create account</h1>
+
+		<form class="my-8 space-y-5" method="post" action="/signup">
+			<label class="block text-sm font-medium">
+				Name
+				<input class="mt-1 w-full rounded-sm border bg-input px-3 py-2 outline-none focus:ring focus:ring-primary" type="text" name="name" autocomplete="name" required/>
+			</label>
+
+			<label class="block text-sm font-medium">
+				Email
+				<input class="mt-1 w-full rounded-sm border bg-input px-3 py-2 outline-none focus:ring focus:ring-primary" type="email" name="email" autocomplete="email" required/>
+			</label>
+
+			<label class="block text-sm font-medium">
+				Password
+				<input class="mt-1 w-full rounded-sm border bg-input px-3 py-2 outline-none focus:ring focus:ring-primary" type="password" name="password" autocomplete="new-password" required/>
+			</label>
+
+			<button class="button-primary w-full px-3 py-2" type="submit">Sign up</button>
+		</form>
+
+		<p class="text-center text-sm text-muted-foreground">Already have an account? <a class="text-primary hover:text-primary/80" href="/signin">Sign in</a></p>
+	</div>
+</section>
+{{template "footer" .}}
+{{end}}
