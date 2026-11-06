@@ -1,15 +1,15 @@
 package home
 
-type Service struct {
-	repository *Repository
+type service struct {
+	repository *repository
 }
 
-// TODO
-
-func NewService(repository *Repository) *Service {
-	return &Service{repository: repository}
+func newService(repo *repository) *service {
+	return &service{
+		repository: repo,
+	}
 }
 
-func (s *Service) PageTitle() string {
+func (s *service) PageTitle() string {
 	return "Home"
 }

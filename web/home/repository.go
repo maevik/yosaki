@@ -1,7 +1,7 @@
 package home
 
-type Repository struct{}
+type repository struct{}
 
-func NewRepository() *Repository {
-	return &Repository{}
+func newRepository() *repository {
+	return &repository{}
 }

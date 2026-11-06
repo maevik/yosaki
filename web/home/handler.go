@@ -6,27 +6,18 @@ import (
 	"github.com/maevik/yosaki/web/view"
 )
 
-type Authenticator interface {
-	IsAuthenticated(r *http.Request) bool
+type handler struct {
+	renderer *view.Renderer
+	service  *service
 }
 
-type Handler struct {
-	renderer      *view.Renderer
-	service       *Service
-	authenticator Authenticator
-}
-
-// TODO
-
-func NewHandler(renderer *view.Renderer, service *Service, authenticator Authenticator) *Handler {
-	return &Handler{renderer: renderer, service: service, authenticator: authenticator}
-}
-
-func (h *Handler) Index(w http.ResponseWriter, r *http.Request) {
-	if !h.authenticator.IsAuthenticated(r) {
-		http.Redirect(w, r, "/signin", http.StatusSeeOther)
-		return
+func newHandler(rdr *view.Renderer, svc *service) *handler {
+	return &handler{
+		renderer: rdr,
+		service:  svc,
 	}
+}
 
+func (h *handler) Index(w http.ResponseWriter, r *http.Request) {
 	h.renderer.Render(w, "home", view.Data{Page: h.service.PageTitle()})
 }

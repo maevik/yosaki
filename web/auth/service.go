@@ -2,22 +2,24 @@ package auth
 
 import "net/http"
 
-type Service struct {
-	repository *Repository
+type service struct {
+	repository *repository
 }
 
-func NewService(repository *Repository) *Service {
-	return &Service{repository: repository}
+func newService(repo *repository) *service {
+	return &service{
+		repository: repo,
+	}
 }
 
-func (s *Service) IsAuthenticated(r *http.Request) bool {
+func (s *service) IsAuthenticated(r *http.Request) bool {
 	return s.repository.IsAuthenticated(r)
 }
 
-func (s *Service) Signin(w http.ResponseWriter) {
+func (s *service) Signin(w http.ResponseWriter) {
 	s.repository.SetAuthenticated(w)
 }
 
-func (s *Service) Signup(w http.ResponseWriter) {
+func (s *service) Signup(w http.ResponseWriter) {
 	s.repository.SetAuthenticated(w)
 }

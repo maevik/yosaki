@@ -1,7 +1,9 @@
 package main
 
-import "github.com/maevik/yosaki/cmd"
+import "github.com/maevik/yosaki/web"
 
 func main() {
-	cmd.RunWeb()
+	web := web.New()
+	web.Register()
+	web.Start()
 }

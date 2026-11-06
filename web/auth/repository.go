@@ -2,20 +2,18 @@ package auth
 
 import "net/http"
 
-type Repository struct{}
+type repository struct{}
 
-func NewRepository() *Repository {
-	return &Repository{}
+func newRepository() *repository {
+	return &repository{}
 }
 
-// TODO
-
-func (r *Repository) IsAuthenticated(req *http.Request) bool {
+func (r *repository) IsAuthenticated(req *http.Request) bool {
 	cookie, err := req.Cookie("authenticated")
 	return err == nil && cookie.Value == "true"
 }
 
-func (r *Repository) SetAuthenticated(w http.ResponseWriter) {
+func (r *repository) SetAuthenticated(w http.ResponseWriter) {
 	http.SetCookie(w, &http.Cookie{
 		Name:     "authenticated",
 		Value:    "true",

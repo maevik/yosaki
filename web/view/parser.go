@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func MustParseFiles(patterns ...string) *template.Template {
+func ParseFiles(patterns ...string) *template.Template {
 	templates := template.New("")
 
 	for _, pattern := range patterns {

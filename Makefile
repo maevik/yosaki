@@ -10,4 +10,4 @@ dev: css
 
 .PHONY: css
 css:
-	npm run css
+	cd web/public && pnpm run css
